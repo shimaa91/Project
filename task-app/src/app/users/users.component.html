@@ -1,0 +1,158 @@
+<div class="container-fluid" style="width: 80%;">
+    <mat-card>
+        <mat-card-content>
+            <div dir="rtl" style="text-align: right;">
+                <button type="button" class="btn  btn-primary " (click)="OpenAddUser(UserContent,null);createForm()" mat-raised-button
+                    color="btn-primary">
+                    <span class="material-icons">
+                        person_add
+                    </span> اضافة مستخدم جديد</button>
+                <br><br>
+            </div>
+            <!-- -->
+            <div class="table-responsive">
+                <table class="data-table table table-reverse ">
+                    <thead>
+                        <tr>
+                            <th scope="row" style="text-align: center;">الاسم</th>
+                            <th scope="row" style="text-align: center;">تاريخ الميلاد</th>
+                            <th scope="row" style="text-align: center;">العمر</th>
+                            <th scope="row" style="text-align: center;">النوع</th>
+                            <th scope="row" style="text-align: center;">التحكم</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of Users">
+                            <td scope="col" style="text-align: center;">{{user.fullName}}</td>
+                            <td scope="col" style="text-align: center;">{{user.birthdate    | date:"dd/MM/yyyy"}}</td>
+                            <td scope="col" style="text-align: center;">{{user.age}}</td>
+                            <td scope="col" style="text-align: center;">
+                                <span   *ngIf="user.gender==1">ذكر</span>
+                                <span   *ngIf="user.gender==2">أنثى</span>
+                            </td>
+                            <td scope="col" style="text-align: center;">
+                                <a (click)="OpenAddUser(UserContent,user)">
+                                    <span class="material-icons" style="color: green;cursor:pointer;">
+                                        create
+                                    </span>
+                                </a>
+                                &nbsp;
+                                <a (click)="OpenDeleteUser(Deletecontent,user)">
+                                    <span class="material-icons" style="color: red;cursor:pointer;">
+                                        delete_sweep
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>                    
+                    </tbody>
+                </table>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+
+<ng-template #UserContent let-c="close" let-d="dismiss">
+    <div class="modal-content">
+        <div class="modal-header" style="padding: 0.7rem 3rem !important;  background-color: #007bff;
+        border-color: #007bff;color: white;cursor: pointer;">
+            <h2 class="modal-title">{{ManageUser}}</h2>
+            <div *ngIf="" class="ld ld-ring ld-spin-fast"></div>
+            <a  style="margin: 0rem !important;padding: 0rem 1rem !important;border: 0rem;color: white;"
+                class="close" aria-label="Close" (click)="d('Cross click');">
+                <span aria-hidden="true">&times;</span></a>
+        </div>
+        <div class="modal-body">
+            <div class="contanier-fluid">
+                <div class="row" style="margin-right:-5px!important">
+                    <div class="col-md-12">
+                        <form role="form" [formGroup]="userForm" (ngSubmit)="AddOrEditUser();d('Cross click');">
+                            <div class="row">
+                                <div class="form-group  col-md-12">
+                                    <mat-form-field class="full-width">
+                                        <mat-label style="text-align: right;display: block;font-size: 1.5rem;"
+                                            dir="rtl">الأسم</mat-label>
+                                        <br>
+                                        <input  required type="text" matInput class="form-control" formControlName="FullName"   id="FullName">
+                                        <mat-error *ngIf="userForm.controls['FullName'].hasError('required')">الاسم مطلوب</mat-error>
+                                        <mat-error *ngIf="userForm.controls['FullName'].hasError('minlength')">الاسم    يجب الا يقل    عن  حرفان</mat-error>
+                                        <mat-error *ngIf="userForm.controls['FullName'].hasError('maxlength')">الاسم    يجب الا يزيد    عن  100 حرف</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                                <div class="row">
+                                    <div class="form-group  col-md-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <label     style="text-align: right;font-size: 1.1rem;vertical-align: middle;padding-top: 1rem;"   dir="rtl">تاريخ الميلاد</label>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button">
+                                                        <span class="material-icons" style="color: blue;">
+                                                            calendar_view_day
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <input  class="form-control" placeholder="yyyy-mm-dd"
+                                                    [firstDayOfWeek]="1" formControlName="BirthDate" class="rtl"  [minDate]="{year: 1969, month: 1, day: 1}"
+                                                    [maxDate]="{year: 2015, month: 12, day: 31}"  
+                                                    name="dp" ngbDatepicker
+                                                    #dp="ngbDatepicker">                                                   
+                                            </div>
+                                            <mat-error  style="text-align: right" *ngIf="userForm.controls['BirthDate'].hasError('required')">تاريخ   الميلاد مطلوب</mat-error>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group  col-md-12">
+                                        <mat-label style="text-align: right;display: block;font-size: 1.1rem;"
+                                            dir="rtl">اختر نوع المستخدم:</mat-label>
+                                        <mat-radio-group    aria-required="true" aria-label="Select an option" class="form-control"
+                                            formControlName="Gender" style="display: contents;margin-right: 1rem;">
+                                            <mat-radio-button   aria-required="true"
+                                                style="text-align: right;display: block;font-size: 1.1rem;" value="1">
+                                                ذكر</mat-radio-button>
+                                            <mat-radio-button   aria-required="true"
+                                                style="text-align: right;display: block;font-size: 1.1rem;" value="2">
+                                                أنثى</mat-radio-button>
+                                             
+                                        </mat-radio-group>
+                                        <mat-error  style="text-align: right" *ngIf="userForm.controls['Gender'].hasError('required')">النوع مطلوب</mat-error>
+                                    </div>
+                                </div>
+                            
+                            <div class="row modal-footer">
+                                <div class="col-md-12  form-actions pull-right">
+                                    <!-- <img [hidden]="!isSaving" class="pull-right" src="/assets/images/ajax-loader.gif">                                     -->
+                                    <button  type="submit" class="btn  btn-primary"  [disabled]="!userForm.valid"
+                                        class="btn btn-primary pull-right ">حفظ
+                                        <i class="fa fa-check-square-o"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #Deletecontent let-modal>
+    <div class="modal-header" style="padding: 0.7rem 3rem !important;  background-color: #007bff;
+        border-color: #007bff;color: white;">
+      <h2 class="modal-title" id="modal-basic-title">من فضلك    اكد...</h2>
+      <a class="close"  style="margin: 0rem !important;padding: 0rem 1rem !important;border: 0rem;color: white; cursor: pointer;"
+       aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </a>
+    </div>
+    <div class="modal-body" style="text-align: right;font-size: 1.3rem;">
+هل  تريد    مسح هذا المستخدم    ({{model.fullName}})؟           
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn  btn-primary" (click)="DeleteUser();modal.close('Save click')">نعم</button>
+    </div>
+  </ng-template>

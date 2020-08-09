@@ -1,0 +1,73 @@
+<div class="container text-center container-login100">
+  <mat-card>
+    
+    <mat-card-header>
+      <span class="login100-form-title card-header  text-center">
+        مرحبا
+        <br>
+      </span>
+    </mat-card-header>
+      <mat-card-content>
+      <!-- <div class="alert alert-danger" *ngIf="errors && errors.length>0 && !result.Status">
+        <div *ngFor="let error of errors">{{ error.Message }}</div>
+      </div> -->
+      <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div novalidate class="card-body">
+        <form class="login100-form validate-form" role="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="col-auto" >
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <md-icon  class="mat-icon material-icons">email</md-icon> 
+                </div>
+              </div>
+              <input matInput type="text" formControlName="Email" required name="Email" class="form-control"
+                placeholder="البريد الإلكترونى">
+                
+            </div>
+            <mat-error  style="color: red;text-align: right;"  *ngIf="loginForm.controls['Email'].hasError('required')">البريد الإلكترونى  مطلوب</mat-error>
+                <mat-error style="color: red;text-align: right;" *ngIf="loginForm.controls['Email'].hasError('pattern')">هذا  البريد  الإلكترونى  غير صالح</mat-error>
+          </div>
+          
+          <div class="col-auto" >
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">  
+                  <md-icon  class="mat-icon material-icons">build</md-icon>                   
+                </div>
+              </div>
+              <input matInput type="password" formControlName="Password" required name="Password" class="form-control"  placeholder="كلمة السر"
+                >
+            </div>
+            <mat-error  style="color: red;text-align: right;"  *ngIf="loginForm.controls['Password'].hasError('required')">كلمة السر  مطلوبة</mat-error>
+          </div>
+          <div class="text-danger">
+            <!-- <div *ngIf="loginForm.controls['password'].hasError('required')">validation.required</div> -->
+            <!-- <div *ngIf="form.controls['password'].hasError('minlength')">
+              {{'validation.password-min-length'|translate}}</div>
+            <div *ngIf="form.controls['password'].hasError('maxLength')">
+              {{'validation.password-max-length'|translate}}</div> -->
+          </div>
+          <div class="text-center">
+              <a   routerLink="/forget-password" class="txt3">هل  نسيت  كلمة  المرور</a>
+            </div> 
+            <br>
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn" mat-button [disabled]="!loginForm.valid || isLoading" type="submit" value="bold"
+              >تسجيل  الدخول
+            </button>
+          </div>
+        </form>
+        <div class="d-flex justify-content-left links" >
+       هل لديك حساب؟&nbsp; <a href="#" >تسجيل حساب جديد</a> 
+        </div>
+      </div>
+    
+    </mat-card-content>
+  </mat-card>
+  </div>

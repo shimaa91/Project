@@ -1,0 +1,189 @@
+
+.container-login100 {
+    width: 100%;  
+    min-height: 100vh;
+   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px; 
+    text-align: center;
+  }
+  
+  .input-group-prepend {
+    margin-right: -1px;
+  }
+  .wrap-login100 {
+    width: 375px;
+    height: 100%;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .input-group-text {
+    display: flex;
+    align-items: center;
+    padding: .375rem .75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #5064e5;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+  }
+  
+  .login100-form {
+    width: 100%;
+  }
+  
+  .login100-form-title {
+    font-family: Raleway-Medium;
+    color: #555555;
+    line-height: 1.2;
+    text-align: left;
+    font-size: 1.75rem;
+    width: 100%;
+    display: block;
+  }
+  
+  .wrap-input100 {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    border-radius: 2px;
+  }
+  input{
+    width:100%;
+    overflow: -webkit-paged-y;
+  }
+  
+  .container-login100-form-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    text-align: -webkit-center;
+    text-align: -moz-center
+  }
+  .container-reset-form-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+   
+  }
+  
+  .reset-form-btn {
+    font-family: Raleway-Bold;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 150px;
+    height: 42px;
+    background-color: #5064e5;
+    border-radius: 7px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  
+  .login100-form-btn {
+    font-family: Raleway-Bold;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 150px;
+    height: 42px;
+    background-color: #5064e5;
+    border-radius: 27px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  
+  .login100-form-btn:hover {
+    background-color: #5064e5;
+    color:white;
+  }
+  
+  .mat-button[disabled][disabled]{
+    color:white;
+    background-color: #5064e5;
+  }
+  
+  a:not([href]):not([tabindex]) {
+    color: inherit;
+    text-decoration: underline;
+  }
+  .txt3 {
+    font-family: Raleway-Regular;
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.4;
+    text-align: right;
+    cursor: pointer;
+  }
+  input.mat-input-element {
+    margin-top: -.0em;
+  }
+  .card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    color: white;
+    text-align: left;
+    background-color: #5064e5;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+  }
+  #forgetPassDIV {
+    width: 100%;
+    text-align: center;
+  }
+  .forgetPassDIV{
+    display: none;
+  }
+  .form-control{
+  border :1px solid #5064e5;
+  }
+  .logo-img{
+    width: 74%;
+    display: block;
+    max-height: 30px;
+  }
+  
+  img{
+    width: 25%;
+    position: absolute;
+  }
+  .reset-form{
+    
+    padding: 21px;
+  }
+  a{
+    color:#5064e5;
+  }

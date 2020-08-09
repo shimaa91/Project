@@ -1,0 +1,69 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+ 
+a:hover, a:active{
+    color: lightgray; 
+    
+}
+ 
+.navigation-items{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;  
+}
+ 
+mat-toolbar{
+    border-radius: 3px;
+}
+ 
+@media(max-width: 959px){
+    mat-toolbar{
+        border-radius: 0px;
+    }
+}
+
+.mat-icon-button:hover{
+    border: 2px white;
+    border-radius: 2px;
+}
+.mat-icon-button:click{
+    border: 0px transparent;
+    border-radius: 0px;
+}
+
+::ng-deep  .color-picker .box,.hue-alpha{
+    display: none   !important;
+}
+
+::ng-deep   .color-picker .preset-area .preset-label{
+    display: none   !important;
+}
+::ng-deep    .color-picker .preset-area{
+    padding-left: 0rem   !important;
+    padding-right: 0rem   !important;
+    padding-top: 0rem   !important;
+    padding-bottom: 0rem   !important;
+}
+
+::ng-deep    .color-picker .preset-area .preset-color {
+    display: TABLE-CAPTION  !important;
+    width: 4.2rem !important; 
+    padding-left: 0rem   !important;
+    padding-right: 0rem   !important;
+    padding-top: 0rem   !important;
+    padding-bottom: 0rem   !important;
+}
+
+::ng-deep   .cp-preset-colors-class .ng-star-inserted{
+    margin-top: .5rem    !important;
+    margin-bottom: 0em;
+}
+
+::ng-deep   .preset-color
+{
+    margin-top: 0rem    !important;
+    margin: 0rem    !important;
+    width: 100% !important;    
+}
