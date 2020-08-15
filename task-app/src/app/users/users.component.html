@@ -55,13 +55,13 @@
 
 <ng-template #UserContent let-c="close" let-d="dismiss">
     <div class="modal-content">
-        <div class="modal-header" style="padding: 0.7rem 3rem !important;  background-color: #007bff;
-        border-color: #007bff;color: white;cursor: pointer;">
-            <h2 class="modal-title">{{ManageUser}}</h2>
-            <div *ngIf="" class="ld ld-ring ld-spin-fast"></div>
-            <a  style="margin: 0rem !important;padding: 0rem 1rem !important;border: 0rem;color: white;"
+        <!-- padding: 0.7rem 3rem !important; -->
+        <div class="modal-header" style=" background-color: #007bff; vertical-align: middle;   
+        border-color: #007bff;color: white;">       
+            <h2 class="modal-title" style="text-align: right    !important;">{{ManageUser}}</h2>            
+            <a  style="margin: 0rem !important;padding: 0rem 1rem !important;border: 0rem;color: white;cursor: pointer;"
                 class="close" aria-label="Close" (click)="d('Cross click');">
-                <span aria-hidden="true">&times;</span></a>
+                <span aria-hidden="true">&times;</span></a>                 
         </div>
         <div class="modal-body">
             <div class="contanier-fluid">
@@ -141,7 +141,7 @@
 </ng-template>
 
 <ng-template #Deletecontent let-modal>
-    <div class="modal-header" style="padding: 0.7rem 3rem !important;  background-color: #007bff;
+    <div class="modal-header" style="background-color: #007bff;
         border-color: #007bff;color: white;">
       <h2 class="modal-title" id="modal-basic-title">من فضلك    اكد...</h2>
       <a class="close"  style="margin: 0rem !important;padding: 0rem 1rem !important;border: 0rem;color: white; cursor: pointer;"
